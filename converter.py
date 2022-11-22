@@ -74,7 +74,7 @@ def help():
 def all_currency():
     data='''
     -----------------------[ All Currencies list] ----------------------------\n
-    \t\t Commands   \t---> Currency Country\n\n
+    \t\t Command ------> Currency Country\n\n
     '''
     with open('currency.json','r') as f:
         x=json.loads(f.read())
@@ -92,6 +92,24 @@ def all_cur_symb():
             symble=i.split(' | ')[1]
             data.append(f"-{symble}")
     return data
+
+def cur_covert(all_comds):
+        print(colr(),logo,author,Fore.RESET)
+        with open('currency.json','r') as f:
+            x=json.loads(f.read())
+            data=x["conversion_factors"]
+            f1=0
+            f2=0
+            for i in data:
+                if i in all_comds[1]:
+                    f1=float(data[i])
+                elif i in all_comds[3]:
+                    f2=float(data[i])
+                
+            result=(f2/f1)*float(all_comds[2])
+            result=format(result,'.4f')
+        print(result)
+
 author='''
 + -- -- -->[ Author: Shivam-Singh | Profile: https://github.com/Sd-Shiivam      
 + -- -- -->[ Git-Repo: https://github.com/Sd-Shiivam/Currency_Converter-        
@@ -105,19 +123,23 @@ def main(a):
         print(colr(),logo,author,Fore.RESET)
         print(colr(),help,Fore.RESET)
     else:
-        if sys.argv[1] == '--list-all':
-            print(colr(),logo,author,Fore.RESET)
-            print(colr())
+        all_comds=sys.argv
+        if all_comds[1] == '--list-all':
+            print(colr(),logo,author,colr())
             print(all_currency(),Fore.RESET)
+        elif all_comds[1] in all_cur_symb() and all_comds[3] in all_cur_symb():
+            cur_covert(all_comds)
+        else:
+            print(colr(),logo,author)
+            print(Fore.RED,'Syntax error.\n please try " python converter.py --help" for help menu.',Fore.RESET)
 
-  
 try:
     a=sys.argv[1]
     if a in ['--help','--list-all',''] or a in all_cur_symb():
         main(a)
     else:
-        print(colr(),logo,author,Fore.RESET)
+        print(colr(),logo,author)
         print(Fore.RED,f'{a} | Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)
 except:
-    print(colr(),logo,author,Fore.RESET)
+    print(colr(),logo,author)
     print(Fore.RED,'Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)
