@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Sd-Shiivam/Sd-Shiivam/main/imagehost/Untitled.png" alt="logo" width="130" />
+  <img src="https://raw.githubusercontent.com/Sd-Shiivam/Sd-Shiivam/main/imagehost/Untitled.png" alt="logo" width="180" />
 </p>
 
 ```
