@@ -1,17 +1,9 @@
 import os 
 import sys
+import json
 import random
-import colorama
 from colorama import Fore
-try:
-    a=sys.argv[1]
-except:
-    pass
-author='''
-+ -- -- -->[ Author: Shivam-Singh | Profile: https://github.com/Sd-Shiivam      
-+ -- -- -->[ Git-Repo: https://github.com/Sd-Shiivam/Currency_Converter-        
-+ -- -- -->[ Total 50 Currency Converter                                        
-'''
+
 
 def colr():
     colors=[Fore.RED,
@@ -73,14 +65,59 @@ def logo():
     num=random.randint(0,len(logos)-1)
     return logos[num]
 
-logo=logo()
-
-print(colr(),logo,author,Fore.RESET)
-
 def help():
     menu='''
     ----------------------------- [HELP DESK] ------------------------------
-
-    
     '''
-    print(menu)
+    return menu
+
+def all_currency():
+    data='''
+    -----------------------[ All Currencies list] ----------------------------\n
+    \t\t Commands   \t---> Currency Country\n\n
+    '''
+    with open('currency.json','r') as f:
+        x=json.loads(f.read())
+        for i in x['currencies']:
+            country=i.split(' | ')[0]
+            symble=i.split(' | ')[1]
+            data+=f"\t\t[ -{symble} ] \t---> {country}\n"
+    return data
+
+def all_cur_symb():
+    data=[]
+    with open('currency.json','r') as f:
+        x=json.loads(f.read())
+        for i in x['currencies']:
+            symble=i.split(' | ')[1]
+            data.append(f"-{symble}")
+    return data
+author='''
++ -- -- -->[ Author: Shivam-Singh | Profile: https://github.com/Sd-Shiivam      
++ -- -- -->[ Git-Repo: https://github.com/Sd-Shiivam/Currency_Converter-        
++ -- -- -->[ Total 15 Currency Converter                                        
+'''
+logo=logo()
+help=help()
+
+def main(a):
+    if a == '--help':
+        print(colr(),logo,author,Fore.RESET)
+        print(colr(),help,Fore.RESET)
+    else:
+        if sys.argv[1] == '--list-all':
+            print(colr(),logo,author,Fore.RESET)
+            print(colr())
+            print(all_currency(),Fore.RESET)
+
+  
+try:
+    a=sys.argv[1]
+    if a in ['--help','--list-all',''] or a in all_cur_symb():
+        main(a)
+    else:
+        print(colr(),logo,author,Fore.RESET)
+        print(Fore.RED,f'{a} | Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)
+except:
+    print(colr(),logo,author,Fore.RESET)
+    print(Fore.RED,'Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)

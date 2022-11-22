@@ -1,0 +1,31 @@
+{
+
+    "currencies":[
+        "US Dollar | USD",
+        "India | INR",
+        "Euro | EUR",
+        "Japanese | JPY",
+        "Russia | RUB",
+        "Chinese | CNY",
+        "Canada | CAD",
+        "Pound | GBP"
+    ],
+    "US Dollar | USD": {
+        "India | Rupee": 81.63,
+        "Euro | Eur": 0.97,
+        "Japanese | JPY": 141.31,
+        "Russia | RUB": 60.65,
+        "Chinese | CNY": 7.14,
+        "Canada | CAD": 1.34,
+        "Pound | GBP": 0.84
+    },
+    "India | Rupee": {
+        "US Dollar | USD": 81.63,
+        "Euro | Eur": 0.97,
+        "Japanese | JPY": 141.31,
+        "Russia | RUB": 60.65,
+        "Chinese | CNY": 7.14,
+        "Canada | CAD": 1.34,
+        "Pound | GBP": 0.84
+    }
+}
