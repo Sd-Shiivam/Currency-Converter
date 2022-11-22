@@ -8,13 +8,15 @@ Python Currency_Converter with CLI based minimalists design.
 </i>
 </b>
 </p>
-##<a name='how-to-contribute'>💥 How to Contribute?</a>
 
-- Take a look at the Existing [Issues](https://github.com/Sd-Shiivam/Currency_Converter-/issues) or create your Issues!
+## <a name='how-to-contribute'>🎊 How to Contribute?</a>
+
+- Solve the existing [Issues](https://github.com/Sd-Shiivam/Currency_Converter-/issues) or create a new Issues!
+- Modify the converter.py file and enhance it.
 - Create a Pull Request which will be promptly reviewed and suggestions would be added to improve it.
 - Having difficulty in contributing? Read the [Contribution Guide](https://github.com/Sd-Shiivam/Currency_Converter-/blob/main/CONTRIBUTING.md) for a detailed explanation.
 
-## <a name='contributors'>👥 Contributors</a>
+## <a name='contributors'>👥 Project Contributors</a>
 
 <a href="https://github.com/Sd-Shiivam/Currency_Converter-/graphs/contributors">
     <p align="center" >
