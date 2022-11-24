@@ -9,6 +9,11 @@ Python Currency_Converter with CLI based minimalists design.
 </b>
 </p>
 
+
+## <a name='Preview'> 💖 Preview</a>
+![list-view](https://raw.githubusercontent.com/Sd-Shiivam/Currency_Converter-/main/sample.png)
+
+
 ## <a name='how-to-contribute'>🎊 How to Contribute?</a>
 
 - Solve the existing [Issues](https://github.com/Sd-Shiivam/Currency_Converter-/issues) or create a new Issues!
