@@ -17,8 +17,9 @@ def colr():
     return colors[ind]
 
 def logo():
-    os.system('cls')
-    os.system('mode con: cols=200 lines=40')
+    if sys.platform != 'Linux':
+        os.system('cls')
+        os.system('mode con: cols=200 lines=40')
     logos=[
         '''
         ╔═══╗                               ╔═══╗                    ╔╗        
@@ -67,7 +68,15 @@ def logo():
 
 def help():
     menu='''
-    ----------------------------- [HELP DESK] ------------------------------
+    ----------------------------- [HELP DESK] ------------------------------\n\n
+    --help\t\tShow help desk for commands help.
+    --list-all\t\tList All Currency in database with base command 
+    \t\t\tfor that currency [like -USD for dollar and -INR for rupee].
+    --update\t\tupdate currency data base.
+    --history\t\tlist recent currency conversions.
+    --add\t\tAdd new Currency.
+    --logo\t\tPrint random main logo.
+    --shell\t\topen a shell for interactive conversion.
     '''
     return menu
 
