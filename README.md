@@ -13,7 +13,13 @@ Python Currency_Converter with CLI based minimalists design.
 ## <a name='Preview'> 💖 Preview</a>
 ![list-view](https://raw.githubusercontent.com/Sd-Shiivam/Currency_Converter-/main/sample.png)
 
-## <a name='Preview'>🃏 Basic Syntax</a>
+## <a name='Preview'>🃏 Installation</a>
+```
+git clone https://github.com/Sd-Shiivam/Currency_Converter-.git
+```
+```
+python converter.py --help
+```
 ```
    ----------------------------- [HELP DESK] ------------------------------
 
