@@ -13,7 +13,29 @@ Python Currency_Converter with CLI based minimalists design.
 ## <a name='Preview'> 💖 Preview</a>
 ![list-view](https://raw.githubusercontent.com/Sd-Shiivam/Currency_Converter-/main/sample.png)
 
+## <a name='Preview'> 💖 Preview</a>
+```
+   ----------------------------- [HELP DESK] ------------------------------
 
+
+    --help              Show help desk for commands help.
+    --list-all          List All Currency in database with base command
+                        for that currency [like -USD for dollar and -INR for rupee].
+    --update            update currency data base.
+    --history           list recent currency conversions.
+    --add               Add new Currency.
+    --logo              Print random main logo.
+    --shell             open a shell for interactive conversion.
+    --------------------------------------------------------------------------
+    Basic syntax:
+
+        python converter.py [currency command (from)] [amount value] [currency command (to)]
+
+    For example:
+    Converting 30 USD ( dollar ) to INR (Rupee)
+
+                python converter.py -USD 30 -INR
+```
 ## <a name='how-to-contribute'>🎊 How to Contribute?</a>
 
 - Solve the existing [Issues](https://github.com/Sd-Shiivam/Currency_Converter-/issues) or create a new Issues!

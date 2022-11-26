@@ -77,6 +77,13 @@ def help():
     --add\t\tAdd new Currency.
     --logo\t\tPrint random main logo.
     --shell\t\topen a shell for interactive conversion.
+    --------------------------------------------------------------------------
+    Basic syntax:\n
+    \tpython converter.py [currency command (from)] [amount value] [currency command (to)]
+
+    For example:
+    Converting 30 USD ( dollar ) to INR (Rupee)\n
+    \t\tpython converter.py -USD 30 -INR
     '''
     return menu
 
@@ -107,8 +114,17 @@ def cur_covert(all_comds):
         with open('currency.json','r') as f:
             x=json.loads(f.read())
             data=x["conversion_factors"]
+            country_data=x['currencies']
             f1=0
+            f1_name=''
             f2=0
+            f2_name=''
+            for m in country_data:
+                if (m.split(' | '))[1] in all_comds[1]:
+                    f1_name=m
+                elif (m.split(' | '))[1] in all_comds[3]:
+                    f2_name=m
+                
             for i in data:
                 if i in all_comds[1]:
                     f1=float(data[i])
@@ -117,7 +133,25 @@ def cur_covert(all_comds):
                 
             result=(f2/f1)*float(all_comds[2])
             result=format(result,'.4f')
-        print(result)
+        res_show=f'''
+        ------------------------------------[ Result ]-------------------------------------\n
+        [-] Currency converted from ({f1_name}) to ({f2_name})
+        [-] Conversion Factor : {format(f2/f1,'.4f')}\n\n
+        \t\t\t{all_comds[2]} ({(f1_name.split(' | '))[1]}) = {result} ({(f2_name.split(' | '))[1]})\n
+        ------------------------------------------------------------------------------------
+        '''
+        with open('history.db','a') as j:
+            j.write(res_show+'#$#')
+        
+        print(colr(),res_show,Fore.RESET)
+
+def history():
+    with open('history.db','r') as h:
+        historys_data=h.read()
+        historys_data=historys_data.split('#$#')
+        historys_data=historys_data[(len(historys_data)-2):]
+    for i in historys_data:
+        print(colr(),i.replace('[ Result ]','-----------'),Fore.RESET)
 
 author='''
 + -- -- -->[ Author: Shivam-Singh | Profile: https://github.com/Sd-Shiivam      
@@ -136,6 +170,9 @@ def main(a):
         if all_comds[1] == '--list-all':
             print(colr(),logo,author,colr())
             print(all_currency(),Fore.RESET)
+        elif all_comds[1] == '--history':
+            print(colr(),logo,author,colr())
+            history()
         elif all_comds[1] in all_cur_symb() and all_comds[3] in all_cur_symb():
             cur_covert(all_comds)
         else:
@@ -144,7 +181,7 @@ def main(a):
 
 try:
     a=sys.argv[1]
-    if a in ['--help','--list-all',''] or a in all_cur_symb():
+    if a in ['--help','--list-all','--history'] or a in all_cur_symb():
         main(a)
     else:
         print(colr(),logo,author)
