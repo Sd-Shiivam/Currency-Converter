@@ -153,6 +153,47 @@ def history():
     for i in historys_data:
         print(colr(),i.replace('[ Result ]','-----------'),Fore.RESET)
 
+def shell():
+    while True:
+        data=input(Fore.GREEN +'©©>> '+Fore.WHITE)
+        if data=='exit()' or data=='^C':
+            print('\nGood Bye !!')
+            break
+        z=1
+        f1=0
+        f1_name=''
+        f2=0
+        f2_name=''
+        v_c=0
+        value_inp=0
+        token=data.split(' ')
+        for i in token:
+            i=i.upper()
+            with open('currency.json','r') as f:
+                m=json.loads(f.read())
+                currencies_name=m['currencies']
+                currencies_fact=m['conversion_factors']
+                for c in currencies_name:
+                    if i in c.upper():
+                        if z==1:
+                            f1_name=c
+                            z+=1
+                        elif z==2:
+                            f2_name=c
+                for h in currencies_fact:
+                    if (f1_name.split(' | '))[-1] == h:
+                        f1=currencies_fact[h]
+                    elif (f2_name.split(' | '))[-1] == h:
+                        f2=currencies_fact[h]
+            if i.isdigit() and v_c==0:
+                value_inp=i
+                v_c+=1
+        result=f'''{value_inp} {(f1_name.split(' | '))[-1]} in {(f2_name.split(' | '))[-1]} is {format((f2/f1)*int(value_inp),'.4f')}\n{value_inp} {(f2_name.split(' | '))[-1]} in {(f1_name.split(' | '))[-1]} is {format((f1/f2)*int(value_inp),'.4f')}'''
+        print(result)
+
+
+
+
 author='''
 + -- -- -->[ Author: Shivam-Singh | Profile: https://github.com/Sd-Shiivam      
 + -- -- -->[ Git-Repo: https://github.com/Sd-Shiivam/Currency_Converter-        
@@ -173,6 +214,12 @@ def main(a):
         elif all_comds[1] == '--history':
             print(colr(),logo,author,colr())
             history()
+        elif all_comds[1] == '--logo':
+            print(colr(),logo,colr())
+            print(author,Fore.RESET)
+        elif all_comds[1] == '--shell':
+            print(colr(),logo,author,colr())
+            shell()
         elif all_comds[1] in all_cur_symb() and all_comds[3] in all_cur_symb():
             cur_covert(all_comds)
         else:
@@ -181,11 +228,13 @@ def main(a):
 
 try:
     a=sys.argv[1]
-    if a in ['--help','--list-all','--history'] or a in all_cur_symb():
+    if a in ['--help','--list-all','--history','--logo','--shell'] or a in all_cur_symb():
         main(a)
     else:
         print(colr(),logo,author)
         print(Fore.RED,f'{a} | Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)
 except:
+    if sys.platform != 'Linux':
+        os.system('cls')
     print(colr(),logo,author)
     print(Fore.RED,'Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)
