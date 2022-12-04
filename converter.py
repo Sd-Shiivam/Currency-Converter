@@ -4,9 +4,17 @@ import json
 import random
 from colorama import Fore
 
+def num_cur():
+    data=[]
+    with open('currency.json','r') as f:
+        x=json.loads(f.read())
+        for i in x['currencies']:
+            symble=i.split(' | ')[1]
+            data.append(f"-{symble}")
+    return len(data)
 
 def colr():
-    colors=[Fore.RED,
+    colors=[Fore.LIGHTMAGENTA_EX,
             Fore.GREEN,
             Fore.BLUE,
             Fore.LIGHTBLUE_EX,
@@ -84,6 +92,12 @@ def help():
     For example:
     Converting 30 USD ( dollar ) to INR (Rupee)\n
     \t\tpython converter.py -USD 30 -INR
+    On shell
+    For example:
+        Converting 30 USD ( dollar ) to INR (Rupee)\n
+        \t\t[-] 30 dollar ma ketana rupee hota ha
+        \t\t\t\tOR
+        \t\t[-] hom much rupee in 30 dollar
     '''
     return menu
 
@@ -155,49 +169,52 @@ def history():
 
 def shell():
     while True:
-        data=input(Fore.GREEN +'©©>> '+Fore.WHITE)
-        if data=='exit()' or data=='^C':
-            print('\nGood Bye !!')
-            break
-        z=1
-        f1=0
-        f1_name=''
-        f2=0
-        f2_name=''
-        v_c=0
-        value_inp=0
-        token=data.split(' ')
-        for i in token:
-            i=i.upper()
-            with open('currency.json','r') as f:
-                m=json.loads(f.read())
-                currencies_name=m['currencies']
-                currencies_fact=m['conversion_factors']
-                for c in currencies_name:
-                    if i in c.upper():
-                        if z==1:
-                            f1_name=c
-                            z+=1
-                        elif z==2:
-                            f2_name=c
-                for h in currencies_fact:
-                    if (f1_name.split(' | '))[-1] == h:
-                        f1=currencies_fact[h]
-                    elif (f2_name.split(' | '))[-1] == h:
-                        f2=currencies_fact[h]
-            if i.isdigit() and v_c==0:
-                value_inp=i
-                v_c+=1
-        result=f'''{value_inp} {(f1_name.split(' | '))[-1]} in {(f2_name.split(' | '))[-1]} is {format((f2/f1)*int(value_inp),'.4f')}\n{value_inp} {(f2_name.split(' | '))[-1]} in {(f1_name.split(' | '))[-1]} is {format((f1/f2)*int(value_inp),'.4f')}'''
-        print(result)
+        try:
+            data=input(Fore.GREEN +'©©>> '+Fore.WHITE)
+            if data=='exit()' or data=='^C':
+                print(colr(),'\nGood Bye !!',Fore.RESET)
+                break
+            if data!='':
+                z=1
+                f1=0
+                f1_name=''
+                f2=0
+                f2_name=''
+                v_c=0
+                value_inp=0
+                token=data.split(' ')
+                for i in token:
+                    i=i.upper()
+                    with open('currency.json','r') as f:
+                        m=json.loads(f.read())
+                        currencies_name=m['currencies']
+                        currencies_fact=m['conversion_factors']
+                        for c in currencies_name:
+                            if i in c.upper():
+                                if z==1:
+                                    f1_name=c
+                                    z+=1
+                                elif z==2:
+                                    f2_name=c
+                        for h in currencies_fact:
+                            if (f1_name.split(' | '))[-1] == h:
+                                f1=currencies_fact[h]
+                            elif (f2_name.split(' | '))[-1] == h:
+                                f2=currencies_fact[h]
+                    if i.isdigit() and v_c==0:
+                        value_inp=i
+                        v_c+=1
+                result=f'''{value_inp} {(f1_name.split(' | '))[-1]} in {(f2_name.split(' | '))[-1]} is {format((f2/f1)*int(value_inp),'.4f')}\n{value_inp} {(f2_name.split(' | '))[-1]} in {(f1_name.split(' | '))[-1]} is {format((f1/f2)*int(value_inp),'.4f')}'''
+                print(result)
+        except:
+            print(Fore.RED,'Syntax error: try exit() for close Shell.',Fore.RESET)
 
 
 
-
-author='''
+author=f'''
 + -- -- -->[ Author: Shivam-Singh | Profile: https://github.com/Sd-Shiivam      
 + -- -- -->[ Git-Repo: https://github.com/Sd-Shiivam/Currency_Converter-        
-+ -- -- -->[ Total 15 Currency Converter                                        
++ -- -- -->[ Total {num_cur()} Currency Converter                                        
 '''
 logo=logo()
 help=help()
