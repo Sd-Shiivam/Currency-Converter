@@ -8,7 +8,8 @@
         "Russia's Ruble | RUB",
         "Chinese yuan | CNY",
         "Pound | GBP",
-        "Bitcoin | BTC"
+        "Bitcoin | BTC",
+        "Colombian Peso | COP"
     ],
     "conversion_factors": {
         "USD":1,
@@ -18,6 +19,7 @@
         "RUB": 60.65,
         "CNY": 7.14,
         "GBP": 0.84,
-        "BTC":0.000059
+        "BTC":0.000059,
+        "COP":0.00021
     }
 }
