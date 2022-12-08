@@ -9,17 +9,33 @@
         "Chinese yuan | CNY",
         "Pound | GBP",
         "Bitcoin | BTC",
-        "Colombian Peso | COP"
+        "Colombian Peso | COP",
+        "Thai Baht | THB",
+        "Turkish lira | TRY",
+        "Afghan Afghani | AFN",
+        "Albanian Lek | ALL",
+        "Algerian Dinar | DZD",
+        "Angolan Kwanza | AOA",
+        "Argentine Peso | ARS",
+        "Armenian Dram | AMD"
     ],
     "conversion_factors": {
         "USD":1,
-        "INR": 81.63,
+        "INR": 82.30,
         "EUR": 0.97,
         "JPY": 141.31,
         "RUB": 60.65,
         "CNY": 7.14,
         "GBP": 0.84,
         "BTC":0.000059,
-        "COP":0.00021
+        "COP":0.00021,
+        "THB":34.79,
+        "TRY":18.65,
+        "AFN":87.55,
+        "ALL":110.87,
+        "DZD":138.40,
+        "AOA":504.59,
+        "ARS":169.81,
+        "AMD":394.44
     }
 }
