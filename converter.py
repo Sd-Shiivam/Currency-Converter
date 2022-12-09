@@ -243,15 +243,17 @@ def main(a):
             print(colr(),logo,author)
             print(Fore.RED,'Syntax error.\n please try " python converter.py --help" for help menu.',Fore.RESET)
 
-try:
-    a=sys.argv[1]
-    if a in ['--help','--list-all','--history','--logo','--shell'] or a in all_cur_symb():
-        main(a)
-    else:
+
+if __name__=="__main__":
+    try:
+        a=sys.argv[1]
+        if a in ['--help','--list-all','--history','--logo','--shell'] or a in all_cur_symb():
+            main(a)
+        else:
+            print(colr(),logo,author)
+            print(Fore.RED,f'{a} | Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)
+    except:
+        if sys.platform != 'Linux':
+            os.system('cls')
         print(colr(),logo,author)
-        print(Fore.RED,f'{a} | Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)
-except:
-    if sys.platform != 'Linux':
-        os.system('cls')
-    print(colr(),logo,author)
-    print(Fore.RED,'Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)
+        print(Fore.RED,'Command not found.\n please try " python converter.py --help" for help menu.',Fore.RESET)
