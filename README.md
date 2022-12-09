@@ -41,6 +41,7 @@ python converter.py --help
     Converting 30 USD ( dollar ) to INR (Rupee)
 
                 python converter.py -USD 30 -INR
+    On Shell
     For example:
     Converting 30 USD ( dollar ) to INR (Rupee)
 
