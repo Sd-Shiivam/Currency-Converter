@@ -19,15 +19,9 @@
         "Argentine Peso | ARS",
         "Armenian Dram | AMD",
         "Aruban Florin | AWG",
-        "Aruban Florin | AUD",
         "Azerbaijani Manat | AZN",
-        "Bahamian Dollar | BSD",
         "Bahraini Dinar | BHD",
-        "Bangladeshi Taka | BDT",
-        "Barbadian Dolla | BBD",
-        "Belarusian Ruble | BYN",
-        "Belize Dollar | BZD",
-        "Bermudan Dollar | BMD"
+        "Bangladeshi Taka | BDT"
     ],
     "conversion_factors": {
         "USD":1,
@@ -48,14 +42,8 @@
         "ARS":169.81,
         "AMD":394.44,
         "AWZ":1.80,
-        "AUD":1.48,
         "AZN":1.70,
-        "BSD":1,
         "BHD":0.38,
-        "BDT":103.34,
-        "BBD":2.02,
-        "BYN":2.52,
-        "BZD":2.02,
-        "BMD":1
+        "BDT":103.34
     }
 }
