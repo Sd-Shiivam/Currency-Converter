@@ -14,16 +14,14 @@
         "Turkish lira | TRY",
         "Afghan Afghani | AFN",
         "Albanian Lek | ALL",
-        "Algerian Dinar | DZD",
         "Angolan Kwanza | AOA",
-        "Argentine Peso | ARS",
+        "Argentine | ARS",
         "Armenian Dram | AMD",
         "Aruban Florin | AWG",
         "Azerbaijani Manat | AZN",
         "Bahraini Dinar | BHD",
         "Bangladeshi Taka | BDT",
         "Bhutanese Ngultrum | BTN",
-        "Belarusian Ruble | BYN",
         "Bolivian Boliviano | BOB"
     ],
     "conversion_factors": {
@@ -40,7 +38,6 @@
         "TRY":18.65,
         "AFN":87.55,
         "ALL":110.87,
-        "DZD":138.40,
         "AOA":504.59,
         "ARS":169.81,
         "AMD":394.44,
@@ -49,7 +46,6 @@
         "BHD":0.38,
         "BDT":103.34,
         "BTN":82.55,
-        "BYN":2.53,
         "BOB":6.91
     }
 }
