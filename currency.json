@@ -21,7 +21,10 @@
         "Aruban Florin | AWG",
         "Azerbaijani Manat | AZN",
         "Bahraini Dinar | BHD",
-        "Bangladeshi Taka | BDT"
+        "Bangladeshi Taka | BDT",
+        "Bhutanese Ngultrum | BTN",
+        "Belarusian Ruble | BYN",
+        "Bolivian Boliviano | BOB"
     ],
     "conversion_factors": {
         "USD":1,
@@ -44,6 +47,9 @@
         "AWZ":1.80,
         "AZN":1.70,
         "BHD":0.38,
-        "BDT":103.34
+        "BDT":103.34,
+        "BTN":82.55,
+        "BYN":2.53,
+        "BOB":6.91
     }
 }
